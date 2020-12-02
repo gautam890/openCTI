@@ -1,5 +1,20 @@
 <html>
 <head>
+   <style>
+      .container {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .child img{
+        display: block;
+      }
+
+      .child button {
+         margin-left: 3px;
+      }
+   </style>
    <script type="text/javascript" src="https://devsprint20--tetvlosp20.lightning.force.com/support/api/50.0/lightning/opencti_min.js"></script>
    <script type="text/javascript">
       var callback2 = function(response) {
@@ -12,18 +27,24 @@
       	 var callback = function(response) {
          if (response.success) {
             console.log('API method call executed successfully! returnValue:', response.returnValue);
-            sforce.opencti.screenPop({ params : {recordId: "0033N00000QvSMoQAN"}, type : sforce.opencti.SCREENPOP_TYPE.SOBJECT,callback : callback2 });
          } else { 
             console.error('Something went wrong! Errors:', response.errors);
          }
       	};
        function searchAndScreenPop() {
+         sforce.opencti.screenPop({ params : {recordId: "0033N00000QvSMoQAN"}, type : sforce.opencti.SCREENPOP_TYPE.SOBJECT,callback : callback2 });
                 //Invokes API method
-                sforce.opencti.searchAndScreenPop({ searchParams : 'Acme',queryParams : 'Key1=value1&Key2=value2', callType : sforce.opencti.CALL_TYPE.INBOUND,  deferred: true, callback : callback });
+               // sforce.opencti.searchAndScreenPop({ searchParams : 'Acme',queryParams : 'Key1=value1&Key2=value2', callType : sforce.opencti.CALL_TYPE.INBOUND,  deferred: true, callback : callback });
         }
     </script>
+
 </head>
 <body>
-    <button onclick="searchAndScreenPop();">searchAndScreenPop</button>
+   <div class="container">
+      <div class="child">
+         <img src='/phone-receiver.png' alt="phone" width="100px">
+         <button onclick="searchAndScreenPop();" title="Pickup a Call">Pickup a Call</button>
+      </div>
+   </div>
 </body>
 </html>
