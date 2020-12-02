@@ -12,7 +12,12 @@
       }
 
       .child button {
-         margin-left: 3px;
+         margin-left: 5px;
+         color: salmon;
+         border: 1px solid;
+         border-radius: 5px;
+         padding: 5px;
+         cursor: pointer;
       }
    </style>
    <script type="text/javascript" src="https://devsprint20--tetvlosp20.lightning.force.com/support/api/50.0/lightning/opencti_min.js"></script>
@@ -32,7 +37,7 @@
          }
       	};
        function searchAndScreenPop() {
-         sforce.opencti.screenPop({ params : {recordId: "0033N00000QvSMoQAN"}, type : sforce.opencti.SCREENPOP_TYPE.SOBJECT,callback : callback2 });
+         sforce.opencti.screenPop({ params : {recordId: "0013N00000Lxup9QAB"}, type : sforce.opencti.SCREENPOP_TYPE.SOBJECT,callback : callback2 });
                 //Invokes API method
                // sforce.opencti.searchAndScreenPop({ searchParams : 'Acme',queryParams : 'Key1=value1&Key2=value2', callType : sforce.opencti.CALL_TYPE.INBOUND,  deferred: true, callback : callback });
         }
