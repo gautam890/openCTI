@@ -2,9 +2,17 @@
 <head>
    <script type="text/javascript" src="https://devsprint20--tetvlosp20.lightning.force.com/support/api/50.0/lightning/opencti_min.js"></script>
    <script type="text/javascript">
+      var callback2 = function(response) {
+         if (response.success) {
+            console.log('API method call executed successfully! returnValue screenpopup:', response.returnValue);
+         } else { 
+            console.error('Something went wrong! Errors:', response.errors);
+         }
+      	};
       	 var callback = function(response) {
          if (response.success) {
             console.log('API method call executed successfully! returnValue:', response.returnValue);
+            sforce.opencti.screenPop({ params : {recordId: "0033N00000QvSMoQAN"}, type : sforce.opencti.SCREENPOP_TYPE.SOBJECT,callback : callback2 });
          } else { 
             console.error('Something went wrong! Errors:', response.errors);
          }
